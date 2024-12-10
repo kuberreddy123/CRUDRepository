@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class EmployeeDto {
 
 
@@ -31,6 +29,14 @@ public class EmployeeDto {
     @NotEmpty
     @NotNull(message = "Nationality is required")
     private String nationality;
+
+    public EmployeeDto(String name, String department, String email, String mobile, String nationality){
+        this.name = name;
+        this.department = department;
+        this.email = email;
+        this.mobile = mobile;
+        this.nationality = nationality;
+    }
 
     public String getName() {
         return name;

@@ -9,14 +9,12 @@ import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Employee {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int id;
-
 private String name;
 private String department;
 private String email;
@@ -31,6 +29,15 @@ public static Employee build(String name, String department, String email, Strin
     employee.setMobile(mobile);
     employee.setNationality(nationality);
     return  employee;
+}
+
+public Employee(int id, String name, String department, String email, String mobile, String nationality){
+    this.id = id;
+    this.name = name;
+    this.department = department;
+    this.email = email;
+    this.mobile = mobile;
+    this.nationality = nationality;
 }
 
     public int getId() {

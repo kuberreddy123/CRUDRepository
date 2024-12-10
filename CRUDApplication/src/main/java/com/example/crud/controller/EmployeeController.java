@@ -26,7 +26,8 @@ public class EmployeeController {
 
 
 
-    EmployeeDto employeeDto = new EmployeeDto();
+    @Autowired
+    EmployeeDto employeeDto;
 
 
 

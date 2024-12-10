@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.ArgumentMatchers.any;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -68,7 +69,7 @@ public class ControllerMockMvcTests {
     }
 
     @Test
-    public void saveEmployeeMissingRequiredField() throws Exception{
+    public void testSaveEmployeeMissingRequiredField() throws Exception{
 
         EmployeeDto employeeDto = new EmployeeDto(" ","Tecnical","kuber@gmail.com","9394938484","Inidan");
 
@@ -77,6 +78,19 @@ public class ControllerMockMvcTests {
                         .contentType("application/json"))
                         .andExpect(status().isBadRequest())
                         .andExpect(jsonPath("$.name").value("Name is required"));
+
+    }
+
+    @Test
+    public void testGetEmpById() throws Exception{
+        EmployeeDto employeeDto = new EmployeeDto("Kuber","Technical","kuber@gmail.com","9394938484","Inidan");
+        int id = 1;
+
+        mockMvc.perform(get("/emp/get/{id}",id))
+                .andExpect(status().isFound())
+                .andExpect(jsonPath("$.name").value("kuber"))
+                .andExpect(jsonPath("$.nationality").value("Indian"));
+
 
     }
 
