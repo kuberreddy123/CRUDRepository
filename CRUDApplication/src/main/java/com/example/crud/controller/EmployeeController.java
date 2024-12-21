@@ -30,12 +30,13 @@ public class EmployeeController {
     EmployeeDto employeeDto;
 
 
-
+// This method is to save the employee into db
     @PostMapping("/save")
     public ResponseEntity<Employee> saveEmployee(@RequestBody @Valid EmployeeDto employeeDto) {
         return new ResponseEntity<Employee>(employeeService.saveEMployee(employeeDto), HttpStatus.CREATED);
     }
 
+    //This method is to get particular employee
     @GetMapping("/get/{id}")
     public ResponseEntity<Employee> getEmpById(@PathVariable int id) throws EmployeeNotFoundExcepiton {
         try {
@@ -45,17 +46,20 @@ public class EmployeeController {
         }
     }
 
+    //This method is to get all employees
     @GetMapping("/fetchAll")
     public ResponseEntity<List<Employee>> fetchAllEmployees() {
         return new ResponseEntity<List<Employee>>(employeeService.getAllEmployees(), HttpStatus.OK);
     }
 
+    //This method is to update employee
     @PutMapping("/update")
     public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
 
         return new ResponseEntity<Employee>(employeeService.updateEmployee(employee), HttpStatus.OK);
     }
 
+    //This method is to delete employee
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable int id) throws EmployeeNotFoundExcepiton {
 
