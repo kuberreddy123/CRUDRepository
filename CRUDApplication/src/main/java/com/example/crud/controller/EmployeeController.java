@@ -46,7 +46,7 @@ public class EmployeeController {
         }
     }
 
-    //This method is to get all employees
+    //This method is to get all employees present in db
     @GetMapping("/fetchAll")
     public ResponseEntity<List<Employee>> fetchAllEmployees() {
         return new ResponseEntity<List<Employee>>(employeeService.getAllEmployees(), HttpStatus.OK);
