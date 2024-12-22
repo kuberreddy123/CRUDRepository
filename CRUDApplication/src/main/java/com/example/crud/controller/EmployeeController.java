@@ -59,7 +59,7 @@ public class EmployeeController {
         return new ResponseEntity<Employee>(employeeService.updateEmployee(employee), HttpStatus.OK);
     }
 
-    //This method is to delete employee based on id, if the employee exists with particulat id
+    //This method is to delete employee based on id, if the employee exists with particular id
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable int id) throws EmployeeNotFoundExcepiton {
 
