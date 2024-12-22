@@ -36,7 +36,7 @@ public class EmployeeController {
         return new ResponseEntity<Employee>(employeeService.saveEMployee(employeeDto), HttpStatus.CREATED);
     }
 
-    //This method is to get particular employee
+    //This method is to get particular employee based on id
     @GetMapping("/get/{id}")
     public ResponseEntity<Employee> getEmpById(@PathVariable int id) throws EmployeeNotFoundExcepiton {
         try {
