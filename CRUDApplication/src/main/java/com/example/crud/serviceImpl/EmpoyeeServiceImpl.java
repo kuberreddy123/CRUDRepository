@@ -15,6 +15,8 @@ public class EmpoyeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+
+    //This method is to save new employee data
     @Override
     public Employee saveEMployee(EmployeeDto employeeDto) {
    Employee employee = Employee.build(employeeDto.getName(),employeeDto.getDepartment(),employeeDto.getEmail(),employeeDto.getMobile(),employeeDto.getNationality());
@@ -23,6 +25,7 @@ public class EmpoyeeServiceImpl implements EmployeeService {
 
     }
 
+    //This method is to get employee by Id
     @Override
     public Employee getEmployeeById(int id) {
         return employeeRepository.findById(id).get();
