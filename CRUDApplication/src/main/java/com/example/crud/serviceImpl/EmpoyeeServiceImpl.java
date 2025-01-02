@@ -31,6 +31,7 @@ public class EmpoyeeServiceImpl implements EmployeeService {
         return employeeRepository.findById(id).get();
     }
 
+    //This method is to get all the employees present
     @Override
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
