@@ -16,7 +16,7 @@ public class EmpoyeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
 
-    //This method is to save new employee
+    //This method is to save new employee data
     @Override
     public Employee saveEMployee(EmployeeDto employeeDto) {
    Employee employee = Employee.build(employeeDto.getName(),employeeDto.getDepartment(),employeeDto.getEmail(),employeeDto.getMobile(),employeeDto.getNationality());
