@@ -40,6 +40,7 @@ public class EmployeeController {
         try {
             return new ResponseEntity<Employee>(employeeService.getEmployeeById(id), HttpStatus.OK);
         } catch (Exception e) {
+            System.out.println("employee not found");
             throw new EmployeeNotFoundExcepiton(e.getMessage());
         }
     }
